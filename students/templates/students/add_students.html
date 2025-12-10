@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{% static 'students/add.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <a href="{% url 'student_list' %}" class="back-btn">← Back</a>
+
+    <h1>Add New Student</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
+</body>
+</html>

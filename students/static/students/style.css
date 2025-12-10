@@ -1,0 +1,83 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Add Student Button */
+.btn {
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+table th {
+    background: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    color: #444;
+}
+
+/* Hover effect */
+table tr:hover {
+    background: #f9f9f9;
+}
+
+/* Edit Button */
+.edit-btn {
+    background: #2196F3;
+    color: white;
+    padding: 7px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    background: #0b7dda;
+}
