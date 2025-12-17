@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -8,12 +9,13 @@ from .models import Student
 
 
 #showing student list
-
+@login_required
 def index(request):
     students = Student.objects.all() #fetch all students from database
     return render(request, 'students/index.html', {'students':students})
 
 #adding student details
+@login_required
 def add_student(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
@@ -27,6 +29,7 @@ def add_student(request):
     return render(request, 'students/add_students.html', {'form':form})
 
 #edit student details
+@login_required
 def edit_student(request, id):
     student = get_object_or_404(Student, id=id) 
 
@@ -43,6 +46,7 @@ def edit_student(request, id):
     return render(request, 'students/edit_student.html', {'form':form})
 
 #delete student details
+@login_required
 def delete_student(request, id):
     student = get_object_or_404(Student, id=id)
     if request.method == "POST":
