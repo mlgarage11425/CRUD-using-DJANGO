@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+
 
 # Create your views here.
 from .forms import StudentForm
@@ -17,6 +19,7 @@ def add_student(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Student added successfully!")
             return redirect('student_list')
     else:
         form = StudentForm()
@@ -31,6 +34,7 @@ def edit_student(request, id):
         form = StudentForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
+            messages.success(request, "Student updated successfully!")
             return redirect('student_list')
 
     else:
@@ -41,5 +45,6 @@ def edit_student(request, id):
 #delete student details
 def delete_student(request, id):
     student = get_object_or_404(Student, id=id)
-    student.delete()
+    if request.method == "POST":
+        student.delete()
     return redirect('student_list')

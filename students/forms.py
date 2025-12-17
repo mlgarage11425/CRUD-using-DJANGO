@@ -4,4 +4,22 @@ from .models import Student
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['id','name', 'age', 'email', 'course']
+        fields = ['name', 'age', 'email', 'course']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter student name'
+            }),
+            'age': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter age'
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter email'
+            }),
+            'course': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter course name'
+            }),
+        }
